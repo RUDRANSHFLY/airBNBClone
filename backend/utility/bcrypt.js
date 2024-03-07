@@ -6,3 +6,9 @@ export const generateEncryptedPassword = (password) => {
     var newEncryptedPassword = bcrypt.hashSync(password, salt);
     return newEncryptedPassword;
 }
+
+
+export const checkPassword = async (realPasssword, encryptedPassword) => {
+    const isPasswordCorrect = await bcrypt.compare(realPasssword, encryptedPassword);
+    return isPasswordCorrect;
+}
