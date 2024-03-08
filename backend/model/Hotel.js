@@ -61,6 +61,8 @@ const hotelSchema = new mongoose.Schema({
         default: false,
     }
 
+}, {
+    timestamps: true
 });
 
 
