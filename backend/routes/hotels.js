@@ -6,20 +6,21 @@ import {
     getHotel,
     updateHotel
 } from '../controller/hotel.js';
+import { verfiyAdmin } from '../utility/verifyToken.js';
 
 const hotelRouter = expess.Router();
 /**
  * ! CREATE
  */
-hotelRouter.post("/", createHotel);
+hotelRouter.post("/", verfiyAdmin, createHotel);
 /**
  * ! UPDATE
  */
-hotelRouter.put("/:id", updateHotel);
+hotelRouter.put("/:id", verfiyAdmin, updateHotel);
 /**
  * ! DELETE
  */
-hotelRouter.delete("/:id", deleteHotel);
+hotelRouter.delete("/:id", verfiyAdmin, deleteHotel);
 /**
  * ! GET
  */
