@@ -1,5 +1,7 @@
 import expess from 'express';
 import {
+    countByCity,
+    countByType,
     createHotel,
     deleteHotel,
     getAllHotel,
@@ -24,11 +26,19 @@ hotelRouter.delete("/:id", verfiyAdmin, deleteHotel);
 /**
  * ! GET
  */
-hotelRouter.get("/:id", getHotel);
+hotelRouter.get("/find/:id", getHotel);
 /**
  * ! GET ALL 
  */
 hotelRouter.get('/', getAllHotel);
+/**
+ * ! COUNT BY CITY  
+ */
+hotelRouter.get('/countByCity', countByCity);
+/**
+ * ! COUNT BY TYPE  
+ */
+hotelRouter.get("/countByType", countByType);
 
 
 

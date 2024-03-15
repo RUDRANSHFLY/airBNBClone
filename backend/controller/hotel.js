@@ -1,3 +1,4 @@
+
 import Hotel from '../model/Hotel.js';
 
 
@@ -62,3 +63,33 @@ export const getAllHotel = async (req, res, next) => {
         next(error);
     }
 }
+/**
+ * * COUNT BY CITY hotel Controller
+ */
+export const countByCity = async (req, res, next) => {
+
+    const cities = req.query.cities.split(",");
+    try {
+        const cityList = await Promise.all(cities.map((city) => {
+            return Hotel.countDocuments({ city: city });
+        }));
+        res.status(200).json(cityList)
+    } catch (error) {
+        next(error);
+    }
+}
+/**
+ * * COUNT BY TYPE hotel Controller
+ */
+export const countByType = async (req, res, next) => {
+    const type = req.query.types.split(",");
+    try {
+        const typeList = await Promise.all(type.map((type) => {
+            return Hotel.countDocuments({ type: type })
+        }));
+        res.status(200).json(typeList);
+    } catch (error) {
+        console.log(error);
+    }
+}
+
