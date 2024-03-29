@@ -1,12 +1,22 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-        domains: [
-            'links.papareact.com',
-            'upload.wikimedia.org',
-            'media.istockphoto.com'
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'links.papareact.com'
+            },
+            {
+                protocol: 'https',
+                hostname: 'upload.wikimedia.org'
+            },
+            {
+                protocol: 'https',
+                hostname: 'media.istockphoto.com'
+            },
         ]
     },
 };
 
 export default nextConfig;
+
