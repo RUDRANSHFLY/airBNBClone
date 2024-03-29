@@ -1,5 +1,5 @@
 import React from "react";
-import Image from "next/image";
+import Image from "next/legacy/image";
 
 interface Props {
   title: string;
@@ -8,7 +8,7 @@ interface Props {
 
 const BigCard = ({ title, img }: Props) => {
   return (
-    <div className="items-center cursor-pointer hover:scale-105 transform transition duration-300 ease-out mb-10 mt-10">
+    <div className="items-center cursor-pointer hover:scale-105 transform transition duration-300 ease-out">
       <div className="relative w-80 h-80">
         <Image
           src={img}
